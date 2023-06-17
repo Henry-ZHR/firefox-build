@@ -1,0 +1,13 @@
+diff --git a/widget/android/nsLookAndFeel.cpp b/widget/android/nsLookAndFeel.cpp
+index 0123456789abc..0123456789abc 100644
+--- a/widget/android/nsLookAndFeel.cpp
++++ b/widget/android/nsLookAndFeel.cpp
+@@ -419,7 +419,7 @@ nsresult nsLookAndFeel::NativeGetFloat(FloatID aID, float& aResult) {
+ 
+ bool nsLookAndFeel::NativeGetFont(FontID aID, nsString& aFontName,
+                                   gfxFontStyle& aFontStyle) {
+-  aFontName.AssignLiteral("Roboto");
++  aFontName.AssignLiteral("\"Noto Sans Display\"");
+   aFontStyle.style = FontSlantStyle::NORMAL;
+   aFontStyle.weight = FontWeight::NORMAL;
+   aFontStyle.stretch = FontStretch::NORMAL;
