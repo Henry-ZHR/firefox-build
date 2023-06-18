@@ -8,6 +8,7 @@ exit 1
 fi
 
 pushd mozilla-central
+git reset --hard HEAD
 git fetch --all
 git checkout FIREFOX_NIGHTLY_${1}_END
 cp -f ../mozconfig .mozconfig
@@ -16,11 +17,13 @@ git apply --verbose ../fix-font.patch
 popd
 
 pushd firefox-android
+git reset --hard HEAD
 git fetch --all
 git checkout fenix-v${1}.0b1
 pushd fenix
 cp -f ../../local.properties local.properties
 JAVA_HOME="$MOZBUILD_STATE_PATH/jdk/jdk-17.0.7+7" ./gradlew clean app:assembleNightly
+./gradlew --stop
 pushd app/build/outputs/apk/fenix/nightly
 $ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner sign \
   --ks ~/keystore.jks \
@@ -31,6 +34,4 @@ popd
 popd
 popd
 
-pushd mozilla-central
-git reset --hard HEAD
-popd
+cp -f firefox-android/fenix/app/build/outputs/apk/fenix/nightly/app-fenix-arm64-v8a-nightly-signed.apk .
