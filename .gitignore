@@ -1,3 +1,6 @@
 mozilla-central/
 firefox-android/
+
+venv/
+
 *.apk
