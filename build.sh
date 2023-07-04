@@ -17,7 +17,6 @@ git apply --verbose ../fix-font.patch
 
 cat >.mozconfig ../mozconfig - <<END
 ac_add_options --target=x86_64
-ac_add_options --with-ccache=sccache
 ac_add_options --enable-profile-generate=cross
 END
 ./mach build
