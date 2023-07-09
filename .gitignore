@@ -1,6 +1,8 @@
 mozilla-central/
 firefox-android/
 
+version.txt
 venv/
-
+stages/
+pgo-profile/
 *.apk
