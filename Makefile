@@ -4,7 +4,9 @@
 
 VERSION != cat version.txt
 
-export JAVA_HOME := $(MOZBUILD_STATE_PATH)/jdk/jdk-17.0.7+7
+# From mozilla-central/python/mozboot/mozboot/android.py
+export JAVA_HOME := $(MOZBUILD_STATE_PATH)/jdk/jdk-17.0.8+7
+
 export APKSIGNER := $(ANDROID_SDK_ROOT)/build-tools/34.0.0/apksigner sign \
 					   --ks ~/keystore.jks \
 					   --ks-key-alias key
@@ -80,6 +82,8 @@ stages/run-profile: stages/build-instrumented
 	pushd mozilla-central
 	adb install obj-x86_64-unknown-linux-android/gradle/build/mobile/android/test_runner/outputs/apk/withGeckoBinaries/debug/test_runner-withGeckoBinaries-debug.apk
 	adb shell appops set org.mozilla.geckoview.test_runner NO_ISOLATED_STORAGE allow
+	rm -rf ../pgo-profile
+	mkdir ../pgo-profile
 	( source ../venv/bin/activate; python ../generate-pgo-profile.py ../pgo-profile )
 	adb uninstall org.mozilla.geckoview.test_runner
 	popd
