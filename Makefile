@@ -100,7 +100,7 @@ stages/build-optimized: stages/run-profile
 
 stages/build-apk: stages/build-optimized firefox-android
 	pushd firefox-android/fenix
-	./gradlew clean app:assembleNightly
+	./gradlew --no-daemon clean app:assembleNightly
 	popd
 	mkdir -p $(@D)
 	touch $@
