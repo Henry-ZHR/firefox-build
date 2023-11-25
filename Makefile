@@ -5,7 +5,7 @@
 VERSION != cat version.txt
 
 # From mozilla-central/python/mozboot/mozboot/android.py
-export JAVA_HOME := $(MOZBUILD_STATE_PATH)/jdk/jdk-17.0.8+7
+export JAVA_HOME := $(MOZBUILD_STATE_PATH)/jdk/jdk-17.0.9+9
 
 export APKSIGNER := $(ANDROID_SDK_ROOT)/build-tools/34.0.0/apksigner sign \
 					   --ks ~/keystore.jks \
