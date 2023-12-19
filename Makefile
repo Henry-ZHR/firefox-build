@@ -16,7 +16,7 @@ app-fenix-arm64-v8a-nightly-signed.apk: stages/sign-apk
 	mv -f firefox-android/fenix/app/build/outputs/apk/fenix/nightly/app-fenix-arm64-v8a-nightly-signed.apk .
 	touch $@
 
-mozilla-central: version.txt
+mozilla-central: version.txt mozconfig
 	pushd mozilla-central
 	git reset --hard HEAD
 	git fetch --all

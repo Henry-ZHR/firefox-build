@@ -7,7 +7,7 @@ ac_add_options --with-ccache=ccache
 ac_add_options --enable-project=mobile/android
 ac_add_options --target=aarch64
 ac_add_options --with-android-sdk=/home/zhr/Android/Sdk
-ac_add_options --with-android-ndk=/home/zhr/Android/Sdk/ndk/23.2.8568313
+ac_add_options --with-android-ndk=/home/zhr/Android/Sdk/ndk/25.2.9519653
 
 ac_add_options --enable-linker=lld
 ac_add_options --enable-lto=cross
